@@ -1,17 +1,10 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import appConfig from './configs/app/app.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { SharedModule } from './share/module/shared.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      load: [appConfig],
-      envFilePath: ['.env'],
-    }),
-  ],
+  imports: [SharedModule],
   controllers: [AppController],
   providers: [AppService],
 })
