@@ -14,6 +14,6 @@ import { PrismaModule } from './prisma/prisma.module';
     LoggerModule,
     PrismaModule,
   ],
-  exports: [LoggerModule, ConfigModule],
+  exports: [LoggerModule, ConfigModule, PrismaModule],
 })
 export class SharedModule {}

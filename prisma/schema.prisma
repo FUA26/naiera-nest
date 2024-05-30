@@ -20,7 +20,7 @@ model User {
   email       String
   password    String?
   hashToken   String?
-  role        Role
+  role        Role      @default(USER)
   phoneNumber String?
   status      Int       @default(1)
   createdAt   DateTime  @default(now())
