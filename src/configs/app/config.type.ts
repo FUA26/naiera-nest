@@ -8,6 +8,13 @@ export type AppConfig = {
   apiPrefix: string;
 };
 
+export type AuthConfig = {
+  secret?: string;
+  expires?: string;
+  refresh_exp?: string;
+};
+
 export type AllConfigType = {
   app: AppConfig;
+  auth: AuthConfig;
 };

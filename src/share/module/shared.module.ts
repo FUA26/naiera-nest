@@ -3,12 +3,13 @@ import { LoggerModule } from './logger/logger.module';
 import { ConfigModule } from '@nestjs/config';
 import appConfig from 'src/configs/app/app.config';
 import { PrismaModule } from './prisma/prisma.module';
+import authConfig from 'src/configs/app/auth.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfig],
+      load: [appConfig, authConfig],
       envFilePath: ['.env'],
     }),
     LoggerModule,
