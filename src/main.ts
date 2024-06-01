@@ -4,6 +4,7 @@ import { ConfigService } from '@nestjs/config';
 import { AllConfigType } from './configs/app/config.type';
 import { setupSwagger } from './configs/swagger.config';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
+import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,6 +18,9 @@ async function bootstrap() {
   app.enableVersioning({
     type: VersioningType.URI,
   });
+
+  app.use(cookieParser());
+
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
 
   setupSwagger(app);
